@@ -1,12 +1,17 @@
+import { useCheckAuth } from "@/hooks/useCheckAuth";
 import { Box, Button, Grid, TextField } from "@mui/material";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
 const LoginModule: React.FC = () => {
   const router = useRouter();
+  const isAuth = useCheckAuth();
+
   const [uname, setUname] = useState("");
   const [pwd, setPwd] = useState("");
   const [showError, setShowError] = useState(false);
+
+  if (isAuth) router.push("/");
 
   const account = [
     {

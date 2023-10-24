@@ -6,11 +6,14 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [isAuth, setIsAuth] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [attemptLogin, setAttemtLogin] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const isAuth = !!window?.localStorage?.getItem("auth");
+      const attemptLogin = !!window?.localStorage.getItem("attempt-login");
       setIsAuth(isAuth);
+      setAttemtLogin(attemptLogin);
     }
     setLoading(false);
   }, []);
@@ -21,10 +24,10 @@ export default function Home() {
     return (
       <Box>
         <Box sx={{ mt: 10 }} textAlign={"center"}>
-          <h1 style={{ marginBottom: "40px" }}>
+          <p style={{ marginBottom: "40px" }}>
             You are not allowed to access this site. Please login first to get
             authentication
-          </h1>
+          </p>
           <Link href="/login">
             <Button variant="outlined">Go to Login</Button>
           </Link>
