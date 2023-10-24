@@ -15,7 +15,7 @@ const LayoutModule: React.FC<LayoutModuleProps> = ({ children }) => {
     <Box>
       <Header logo="BMIC" menuListings={data} />
       <Container sx={{ minHeight: "80vh", mt: 4 }}>{children}</Container>
-      <Footer menuListings={data} text="All right reserved" />
+      <Footer menuListings={data} />
     </Box>
   );
 };

@@ -15,11 +15,12 @@ const HomeModule: React.FC<HomeModuleProps> = ({ user }) => {
       <h1>Home</h1>
       <Box mt={2}>
         {!!data
-          ? `Api has successfully made a call. Please check on log to see the response`
+          ? `Api has successfully made a call`
           : user
           ? `Waiting for api call to complete`
           : `Network issue`}
       </Box>
+      {!!data && <Box mt={4}>{JSON.stringify(data)}</Box>}
     </Box>
   );
 };
