@@ -14,7 +14,7 @@ const Footer: React.FC<FooterProps> = ({ menuListings }) => {
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
           mx: "auto",
-          pt: { xs: 2, md: 0 },
+          py: { xs: 2, md: 0 },
           width: "fit-content",
         }}
         gap={2}
