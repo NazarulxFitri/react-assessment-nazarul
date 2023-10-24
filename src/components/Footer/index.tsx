@@ -9,9 +9,18 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ menuListings }) => {
   return (
     <Box sx={{ background: "#333", color: "#FFF" }}>
-      <Box sx={{ display: "flex", mx: "auto", width: "fit-content" }} gap={2}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          mx: "auto",
+          pt: { xs: 2, md: 0 },
+          width: "fit-content",
+        }}
+        gap={2}
+      >
         {menuListings?.map((i, idx) => (
-          <Box key={idx} sx={{ py: 4 }}>
+          <Box key={idx} sx={{ py: { xs: 0, md: 4 } }}>
             <Link
               style={{ color: "#FFF", textDecoration: "none" }}
               href={i.cta}

@@ -14,6 +14,8 @@ const Header: React.FC<HeaderProps> = ({ logo, menuListings }) => {
         background: "#b7021d",
         color: "#FFF",
         display: "flex",
+        textAlign: { xs: "center", md: "left" },
+        flexDirection: { xs: "column", md: "row" },
         py: 2,
         px: 4,
       }}
@@ -21,7 +23,14 @@ const Header: React.FC<HeaderProps> = ({ logo, menuListings }) => {
       <Box>
         <h1>{logo}</h1>
       </Box>
-      <Box m="auto 0 auto auto" display="flex" gap={2}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          m: { xs: "8px 0", md: "auto 0 auto auto" },
+        }}
+        gap={2}
+      >
         {menuListings?.map((i, idx) => (
           <Box key={idx}>
             <Link

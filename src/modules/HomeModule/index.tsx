@@ -20,7 +20,11 @@ const HomeModule: React.FC<HomeModuleProps> = ({ user }) => {
           ? `Waiting for api call to complete`
           : `Network issue`}
       </Box>
-      {!!data && <Box mt={4}>{JSON.stringify(data)}</Box>}
+      {!!data && (
+        <Box mt={4} sx={{ overflow: "scroll" }}>
+          {JSON.stringify(data)}
+        </Box>
+      )}
     </Box>
   );
 };

@@ -45,7 +45,7 @@ const LoginModule: React.FC = () => {
         boxShadow: "1px 1px 10px #d9d9d9",
         p: 4,
         mx: "auto",
-        width: "480px",
+        width: { xs: "100%", md: "480px" },
       }}
     >
       <Grid container rowGap={2}>
