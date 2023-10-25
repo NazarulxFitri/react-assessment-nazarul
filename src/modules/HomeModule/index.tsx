@@ -10,8 +10,6 @@ const HomeModule: React.FC<HomeModuleProps> = ({ user }) => {
   const { data } = useGetMainApi();
   const dataListings = data?.data;
 
-  console.log("xxx", data);
-
   return (
     <Box mb={4}>
       <h1>Home</h1>
