@@ -22,7 +22,7 @@ const HomeModule: React.FC<HomeModuleProps> = ({ user }) => {
       </Box>
       <Grid container spacing={2} mt={2}>
         {dataListings?.map((i) => (
-          <Grid item xs={12} md={4}>
+          <Grid key={i.id} item xs={12} md={4}>
             <Box
               sx={{
                 p: 2,
