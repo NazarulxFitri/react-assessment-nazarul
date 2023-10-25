@@ -1,5 +1,6 @@
 import useGetMainApi from "@/data/useGetMainApi";
-import { Box } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
+import Image from "next/image";
 
 interface HomeModuleProps {
   user: boolean;
@@ -7,11 +8,12 @@ interface HomeModuleProps {
 
 const HomeModule: React.FC<HomeModuleProps> = ({ user }) => {
   const { data } = useGetMainApi();
+  const dataListings = data?.data;
 
-  console.log("From Home Page api call", data);
+  console.log("xxx", data);
 
   return (
-    <Box>
+    <Box mb={4}>
       <h1>Home</h1>
       <Box mt={2}>
         {!!data
@@ -20,11 +22,35 @@ const HomeModule: React.FC<HomeModuleProps> = ({ user }) => {
           ? `Waiting for api call to complete`
           : `Network issue`}
       </Box>
-      {!!data && (
-        <Box mt={4} sx={{ overflow: "scroll" }}>
-          {JSON.stringify(data)}
-        </Box>
-      )}
+      <Grid container spacing={2} mt={2}>
+        {dataListings?.map((i) => (
+          <Grid item xs={12} md={4}>
+            <Box
+              sx={{
+                p: 2,
+                mx: "auto",
+                width: "fit-content",
+              }}
+            >
+              <Box sx={{ position: "relative" }}>
+                <Image
+                  src={i.avatar}
+                  alt={i.first_name}
+                  width={200}
+                  height={200}
+                  style={{ borderRadius: "80%" }}
+                />
+              </Box>
+              <Box>
+                <Typography fontWeight={"700"} variant="body1">
+                  {i.first_name} {i.last_name}
+                </Typography>
+                <Typography variant="body1">{i.email}</Typography>
+              </Box>
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
     </Box>
   );
 };
